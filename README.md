@@ -1,2 +1,1 @@
-# React
-Leaning React project through coding
+Learning React project through coding
