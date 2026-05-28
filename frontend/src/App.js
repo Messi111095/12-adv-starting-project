@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             const response = await fetch('http://localhost:8080/events');
 
       if (!response.ok) {
-        //...handle error
+        //...handle error ashutosh
       } else {
         const resData = await response.json();
         return resData.events;
