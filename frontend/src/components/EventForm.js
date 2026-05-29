@@ -31,7 +31,6 @@ function EventForm({ method, event }) {
           Cancel
         </button>
         <button>Save</button>
-        <p>Ashutosh</p>
       </div>
     </form>
   );
