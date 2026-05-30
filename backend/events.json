@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"Another event ","image":"https://www.google.com/imgres?q=event&imgurl=https%3A%2F%2Fwww.eventbookings.com%2Fwp-content%2Fuploads%2F2018%2F03%2Fevent-ideas-for-party-eventbookings.jpg&imgrefurl=https%3A%2F%2Fwww.eventbookings.com%2Fblog%2Fevent-ideas%2F&docid=hIWJ7FiSryT73M&tbnid=Uprjo-QzRiISKM&vet=12ahUKEwjgrtbep-CUAxWdSGwGHZiAJM4QnPAOegQIGxAB..i&w=1022&h=611&hcb=2&ved=2ahUKEwjgrtbep-CUAxWdSGwGHZiAJM4QnPAOegQIGxAB","date":"2026-05-30","description":"Another event !!!!","id":"4a7708c4-5ba2-4664-b04a-26975efdbbff"},{"title":"A new Event ","image":"https://www.google.com/imgres?q=event&imgurl=https%3A%2F%2Fwww.eventbookings.com%2Fwp-content%2Fuploads%2F2018%2F03%2Fevent-ideas-for-party-eventbookings.jpg&imgrefurl=https%3A%2F%2Fwww.eventbookings.com%2Fblog%2Fevent-ideas%2F&docid=hIWJ7FiSryT73M&tbnid=Uprjo-QzRiISKM&vet=12ahUKEwjgrtbep-CUAxWdSGwGHZiAJM4QnPAOegQIGxAB..i&w=1022&h=611&hcb=2&ved=2ahUKEwjgrtbep-CUAxWdSGwGHZiAJM4QnPAOegQIGxAB","date":"2026-05-31","description":"New Event to be sent to the backend.!!!!","id":"2fa8256a-bd3e-47d7-817c-d807d574bca0"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
