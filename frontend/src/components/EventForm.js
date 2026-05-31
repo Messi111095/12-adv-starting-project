@@ -1,15 +1,26 @@
-import { useNavigate, Form } from 'react-router-dom';
+import { useNavigate, Form, useNavigation, useActionData, redirect } from 'react-router-dom';
 
 import classes from './EventForm.module.css';
 
 function EventForm({ method, event }) {
   const navigate = useNavigate();
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
+  const data = useActionData();
+
   function cancelHandler() {
     navigate('..');
   }
 
   return (
     <Form className={classes.form} method={method || 'post'}>
+      {data && data.errors && (
+        <ul>
+          {Object.values(data.errors).map((err) => (
+            <li key={err}>{err}</li>
+          ))}
+        </ul>
+      )}
       <p>
         <label htmlFor="title">Title</label>
         <input id="title" type="text" name="title" required defaultValue={event ? event.title : ''} />
@@ -27,13 +38,48 @@ function EventForm({ method, event }) {
         <textarea id="description" name="description" rows="5" required defaultValue={event ? event.description : ''} />
       </p>
       <div className={classes.actions}>
-        <button type="button" onClick={cancelHandler}>
+        <button type="button" onClick={cancelHandler} disabled={isSubmitting}>
           Cancel
         </button>
-        <button>Save</button>
+        <button disabled={isSubmitting}>{isSubmitting ? 'Saving...' : 'Save'}</button>
       </div>
     </Form>
   );
 }
 
 export default EventForm;
+
+
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  const method = request.method;
+
+  const eventData = {
+    title: formData.get('title'),
+    image: formData.get('image'),
+    date: formData.get('date'),
+    description: formData.get('description'),
+  };
+
+  let url = 'http://localhost:8081/events';
+  if (method === "PATCH") {
+    url = 'http://localhost:8081/events/' + params.eventId;
+  }
+  const response = await fetch(url, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(eventData),
+  });
+
+  if (response.status === 422) {
+    return response;
+  }
+  if (!response.ok) {
+    throw new Response(JSON.stringify({ message: 'Could not save event.' }), {
+      status: 500,
+    });
+  }
+  return redirect('/events');
+}
